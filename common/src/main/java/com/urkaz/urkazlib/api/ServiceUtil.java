@@ -22,7 +22,7 @@ public class ServiceUtil {
                     .formatted(clazz.getName(), names);
             throw new IllegalStateException(msg);
         } else {
-            var provider = providers.get(0);
+            var provider = providers.getFirst();
             return provider.get();
         }
     }

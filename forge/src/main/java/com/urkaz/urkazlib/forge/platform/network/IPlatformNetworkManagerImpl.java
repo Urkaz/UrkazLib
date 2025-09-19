@@ -31,7 +31,7 @@ import net.minecraftforge.network.payload.PayloadProtocol;
 public class IPlatformNetworkManagerImpl implements IPlatformNetworkManager {
 
     private static final int PROTOCOL_VERSION = 1;
-    public static PayloadProtocol<RegistryFriendlyByteBuf, CustomPacketPayload> NETWORK_CHANNEL_BUILDER = ChannelBuilder
+    public static final PayloadProtocol<RegistryFriendlyByteBuf, CustomPacketPayload> NETWORK_CHANNEL_BUILDER = ChannelBuilder
             .named(ResourceLocation.fromNamespaceAndPath(UrkazLib.MOD_ID, "main"))
             .networkProtocolVersion(PROTOCOL_VERSION)
             .acceptedVersions(Channel.VersionTest.exact(PROTOCOL_VERSION))

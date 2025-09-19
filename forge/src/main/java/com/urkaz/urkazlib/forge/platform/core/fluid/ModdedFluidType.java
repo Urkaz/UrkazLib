@@ -32,8 +32,8 @@ import static net.minecraft.sounds.SoundEvents.BUCKET_FILL;
 
 public class ModdedFluidType extends FluidType {
 
-    IFluidProperties properties;
-    String defaultTranslationKey;
+    final IFluidProperties properties;
+    final String defaultTranslationKey;
 
     public ModdedFluidType(Properties builder, IFluidProperties properties, Fluid fluid) {
         super(populateNeoforgeProperties(builder, properties));

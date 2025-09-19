@@ -25,7 +25,7 @@ import java.util.function.Function;
 @Environment(EnvType.CLIENT)
 public class ModdedFluidRenderingHandler implements FluidRenderHandler, FluidVariantRenderHandler {
 
-    IFluidProperties properties;
+    final IFluidProperties properties;
     protected final TextureAtlasSprite[] sprites;
 
     public ModdedFluidRenderingHandler(IFluidProperties properties) {

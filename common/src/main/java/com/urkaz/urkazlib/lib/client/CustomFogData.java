@@ -8,8 +8,8 @@ package com.urkaz.urkazlib.lib.client;
 
 public class CustomFogData {
 
-    public float start;
-    public float end;
+    public final float start;
+    public final float end;
 
     public CustomFogData(float start, float end) {
         this.start = start;

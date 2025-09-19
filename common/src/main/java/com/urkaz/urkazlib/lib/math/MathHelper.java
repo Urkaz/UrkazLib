@@ -21,7 +21,7 @@ public class MathHelper {
             int oldRows = layer.size();
             int oldCols = layer.getFirst().size();
 
-            // Create the the new rotated matrix for this layer (MxN → NxM)
+            // Create the new rotated matrix for this layer (MxN -> NxM)
             List<List<T>> rotatedLayer = new ArrayList<>();
             for (int i = 0; i < oldCols; i++) {
                 rotatedLayer.add(new ArrayList<>());
