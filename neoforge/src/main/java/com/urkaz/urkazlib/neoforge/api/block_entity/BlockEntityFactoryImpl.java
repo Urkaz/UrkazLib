@@ -17,6 +17,6 @@ import java.util.function.BiFunction;
 public class BlockEntityFactoryImpl implements BlockEntityFactory {
     @Override
     public <T extends BlockEntity> BlockEntityType<T> createBlockEntityType(BiFunction<BlockPos, BlockState, T> func, Block... blocks) {
-        return new BlockEntityType<T>(func::apply, blocks);
+        return new BlockEntityType<>(func::apply, blocks);
     }
 }

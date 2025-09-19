@@ -19,6 +19,6 @@ import java.util.stream.Collectors;
 public class BlockEntityFactoryImpl implements BlockEntityFactory {
     @Override
     public <T extends BlockEntity> BlockEntityType<T> createBlockEntityType(BiFunction<BlockPos, BlockState, T> func, Block... blocks) {
-        return new BlockEntityType<T>(func::apply, Arrays.stream(blocks).collect(Collectors.toSet()));
+        return new BlockEntityType<>(func::apply, Arrays.stream(blocks).collect(Collectors.toSet()));
     }
 }

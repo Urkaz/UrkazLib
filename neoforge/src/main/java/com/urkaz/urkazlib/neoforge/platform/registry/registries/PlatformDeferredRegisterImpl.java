@@ -13,7 +13,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.function.Supplier;
 
@@ -24,9 +23,7 @@ public class PlatformDeferredRegisterImpl implements IPlatformDeferredRegister {
         EventBusHooks.whenAvailable(UrkazLib.MOD_ID, bus -> {
             bus.addListener(RegisterEvent.class, event -> {
 
-                Iterator<Map.Entry<DeferredHolder<T>, Supplier<? extends T>>> var3 = entries.entrySet().iterator();
-                while (var3.hasNext()) {
-                    Map.Entry<DeferredHolder<T>, Supplier<? extends T>> e = var3.next();
+                for (Map.Entry<DeferredHolder<T>, Supplier<? extends T>> e : entries.entrySet()) {
                     event.register(registryKey, e.getKey().getId(), () -> e.getValue().get());
                 }
             });

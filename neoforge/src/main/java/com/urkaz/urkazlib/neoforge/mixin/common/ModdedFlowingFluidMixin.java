@@ -17,6 +17,7 @@ import java.util.function.Supplier;
 @Mixin(ModdedFlowingFluid.class)
 public abstract class ModdedFlowingFluidMixin extends FlowingFluid {
 
+    @SuppressWarnings("UnreachableCode")
     @Override
     public @NotNull FluidType getFluidType() {
         ModdedFlowingFluid thisObject = (ModdedFlowingFluid)(Object)this;

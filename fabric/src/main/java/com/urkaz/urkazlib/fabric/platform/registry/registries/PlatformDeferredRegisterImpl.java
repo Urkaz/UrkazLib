@@ -11,7 +11,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.function.Supplier;
 
@@ -20,10 +19,7 @@ public class PlatformDeferredRegisterImpl implements IPlatformDeferredRegister {
     @Override
     public <T> void registerAllEntries(ResourceKey<? extends Registry<T>> registryKey, Map<DeferredHolder<T>, Supplier<? extends T>> entries, Runnable completedEvent) {
 
-        Iterator<Map.Entry<DeferredHolder<T>, Supplier<? extends T>>> var3 = entries.entrySet().iterator();
-        while (var3.hasNext()) {
-            Map.Entry<DeferredHolder<T>, Supplier<? extends T>> e = var3.next();
-
+        for (Map.Entry<DeferredHolder<T>, Supplier<? extends T>> e : entries.entrySet()) {
             // Get registry from key
             Registry<T> blR = (Registry<T>) BuiltInRegistries.REGISTRY.getValue(registryKey.location());
             // Register
