@@ -1,4 +1,4 @@
-name: Build & Publish
+name: Release PR
 
 on:
   workflow_dispatch:
@@ -16,23 +16,14 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  actions: read
 
 env:
   CI: true
 
 jobs:
-  build:
-    name: Build
+  release:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Setup JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: 21
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -45,11 +36,3 @@ jobs:
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: simple
-
-      - name: Set Permissions
-        run: chmod +x ./gradlew
-
-      - name: Build & Maven Publish
-        run: ./gradlew publish --stacktrace
-        env:
-          urkaz_maven_pass: ${{ secrets.URKAZ_MAVEN_PASS }}
