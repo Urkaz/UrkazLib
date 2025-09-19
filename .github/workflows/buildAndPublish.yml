@@ -46,6 +46,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: simple
 
+      - name: Set Permissions
+        run: chmod +x ./gradlew
+
       - name: Build & Maven Publish
         run: ./gradlew publish --stacktrace
         env:
