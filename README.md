@@ -11,3 +11,18 @@
     <a href="https://modrinth.com/mod/urkazlib"><img src="https://img.shields.io/modrinth/dt/1sxtqgoT?style=flat-square&logo=modrinth&label=Modrinth&color=5da426"></a>
 <p>
 </p>
+
+Companion library containing multiple utilities for multiplatform development of mods for Minecraft Java Edition.
+
+Features:
+
+* Support for Fabric, NeoForge and Forge.
+* Deferred registries for all platforms.
+* Easy development of custom Fluids with different properties.
+* Easy network management when using custom packets.
+* Easy keymapping registry.
+* Easy menu registry with additional data.
+* Custom Fog properties when inside blocks or fluids.
+* Other miscellaneous tools to ease the development.
+
+The project is in development, and more features may be added in the future.
