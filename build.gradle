@@ -7,13 +7,17 @@ plugins {
     id "org.cadixdev.licenser" version "0.6.1" apply false
 }
 
+def versionPropsFile = file('gradle-version.properties')
+def versionProps = new Properties()
+versionProps.load(new FileInputStream(versionPropsFile))
+
 subprojects {
     apply plugin: 'org.cadixdev.licenser' // Applies licenser plugin to all projects
 
     def isCiBuild = System.getenv("CI") == "true"
     def isLocalBuild = !isCiBuild
 
-    version = isLocalBuild ? getNextSnapshotVersion() : project.findProperty("mod_version")
+    version = isLocalBuild ? getNextSnapshotVersion() : versionProps['mod_version']
     println "Building version: $version"
 
     group = maven_group
