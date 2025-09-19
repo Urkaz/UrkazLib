@@ -26,7 +26,7 @@ subprojects {
         setHeader(rootProject.file("LICENSE_HEADER"))
 
         ext {
-            name = "Urkaz - Fran Sánchez"
+            name = "Urkaz - Fran Sanchez"
             year = "2025"
             modname = rootProject.mod_name
         }
