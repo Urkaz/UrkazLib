@@ -1,0 +1,52 @@
+name: Build & Publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'common/**'
+      - 'fabric/**'
+      - 'forge/**'
+      - 'neoforge/**'
+      - '**.gradle'
+      - '**.properties'
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+env:
+  CI: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: 'main'
+          fetch-depth: 0
+
+      - name: Release Please
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: simple
+
+      - name: Build & Maven Publish
+        run: ./gradlew publish --stacktrace
+        env:
+          urkaz_maven_pass: ${{ secrets.URKAZ_MAVEN_PASS }}

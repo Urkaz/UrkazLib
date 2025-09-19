@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.urkaz.urkazlib.mixin",
+  "refmap": "${mod_id}.refmap.json",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "common.BiomeMixin",
+    "common.ItemMixin",
+    "common.LiquidBlockAccessor",
+    "common.ServerLevelMixin"
+  ],
+  "client": [
+    "client.CameraMixin",
+    "client.FallingDustParticleMixin",
+    "client.FogRendererMixin",
+    "client.MinecraftMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixinextras": {
+    "minVersion": "0.5.0-rc.2"
+  }
+}
+
