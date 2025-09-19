@@ -5,7 +5,6 @@
 
 package com.urkaz.urkazlib.neoforge.mixin.common;
 
-import com.urkaz.urkazlib.UrkazLib;
 import com.urkaz.urkazlib.core.fluid.ModdedFlowingFluid;
 import com.urkaz.urkazlib.neoforge.platform.core.fluid.FluidRegisterHelperImpl;
 import net.minecraft.world.level.material.FlowingFluid;

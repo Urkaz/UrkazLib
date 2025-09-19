@@ -7,15 +7,12 @@ package com.urkaz.urkazlib.forge.platform.registry.registries;
 
 import com.urkaz.urkazlib.UrkazLib;
 import com.urkaz.urkazlib.forge.platform.hooks.EventBusHooks;
-import com.urkaz.urkazlib.forge.platform.registry.client.keymapping.PlatformKeymappingRegistryImpl;
 import com.urkaz.urkazlib.platform.registry.registries.IPlatformDeferredRegister;
 import com.urkaz.urkazlib.registry.registries.DeferredHolder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.registries.RegisterEvent;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.function.Supplier;
 

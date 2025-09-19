@@ -11,7 +11,6 @@ import com.urkaz.urkazlib.core.fluid.ModdedFlowingFluid;
 import com.urkaz.urkazlib.lib.client.CustomFogData;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.fog.FogRenderer;
 import net.minecraft.world.level.material.Fluid;
 import org.jetbrains.annotations.ApiStatus;
 import org.joml.Vector4f;

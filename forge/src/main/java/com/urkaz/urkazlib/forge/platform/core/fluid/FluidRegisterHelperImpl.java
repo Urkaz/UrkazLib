@@ -9,7 +9,6 @@ import com.google.common.base.Suppliers;
 import com.urkaz.urkazlib.core.fluid.IFluidProperties;
 import com.urkaz.urkazlib.core.fluid.ModdedFlowingFluid;
 import com.urkaz.urkazlib.platform.core.fluid.IFluidRegisterHelper;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidType;
 
 import java.util.IdentityHashMap;

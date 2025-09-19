@@ -8,8 +8,6 @@ package com.urkaz.urkazlib.fabric.platform.core.fluid;
 import com.urkaz.urkazlib.core.fluid.IFluidProperties;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributeHandler;
-import net.minecraft.Util;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.Level;

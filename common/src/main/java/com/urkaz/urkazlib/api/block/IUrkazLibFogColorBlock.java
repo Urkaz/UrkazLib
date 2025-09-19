@@ -7,9 +7,7 @@ package com.urkaz.urkazlib.api.block;
 
 import com.urkaz.urkazlib.lib.client.CustomFogData;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.core.BlockPos;
 import net.minecraft.util.ColorRGBA;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FogType;
 

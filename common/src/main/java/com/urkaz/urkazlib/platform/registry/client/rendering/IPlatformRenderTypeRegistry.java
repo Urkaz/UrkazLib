@@ -6,7 +6,6 @@
 package com.urkaz.urkazlib.platform.registry.client.rendering;
 
 import com.urkaz.urkazlib.api.ServiceUtil;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;

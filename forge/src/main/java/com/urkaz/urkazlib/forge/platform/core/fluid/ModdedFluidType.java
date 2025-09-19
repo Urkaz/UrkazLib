@@ -6,9 +6,7 @@
 package com.urkaz.urkazlib.forge.platform.core.fluid;
 
 import com.google.common.base.MoreObjects;
-import com.urkaz.urkazlib.UrkazLib;
 import com.urkaz.urkazlib.core.fluid.IFluidProperties;
-import com.urkaz.urkazlib.platform.Platform;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -20,8 +18,6 @@ import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.SoundAction;
 import net.minecraftforge.fluids.FluidStack;
@@ -29,9 +25,6 @@ import net.minecraftforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.Map;
 import java.util.function.Consumer;
 
 import static net.minecraft.sounds.SoundEvents.BUCKET_EMPTY;
