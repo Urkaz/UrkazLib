@@ -28,5 +28,5 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
-          commit_message: "chore: update gradle-version.properties to ${{ steps.read_version.outputs.version }}"
+          commit_message: "chore: update gradle-version.properties version"
           branch: ${{ github.ref_name }}
