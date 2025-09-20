@@ -6,6 +6,9 @@ on:
     branches:
       - 'release-please--branches--*'
 
+permissions:
+  contents: write
+
 jobs:
   update-gradle-version:
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
           sed -i "s/mod_version=.*/mod_version=$VERSION/" gradle-version.properties
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: "chore: update gradle-version.properties to ${{ steps.read_version.outputs.version }}"
           branch: ${{ github.ref_name }}
