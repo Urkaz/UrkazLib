@@ -13,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ItemHelper {
 
+    @SuppressWarnings("deprecation")
     public static Holder<Item> getHolder(Item item) {
         return item.builtInRegistryHolder();
     }
