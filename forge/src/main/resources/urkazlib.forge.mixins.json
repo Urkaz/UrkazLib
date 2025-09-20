@@ -1,9 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.urkaz.urkazlib.mixin",
+  "package": "com.urkaz.urkazlib.forge.mixin",
   "compatibilityLevel": "JAVA_18",
-  "mixins": [],
+  "mixins": [
+    "common.ModdedFlowingFluidMixin"
+  ],
   "client": [],
   "server": [],
   "injectors": {
