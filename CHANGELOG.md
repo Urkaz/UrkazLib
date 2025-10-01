@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0](https://github.com/Urkaz/UrkazLib/compare/v1.1.0...v1.2.0) (2025-10-01)
+
+
+### Features
+
+* remove unused BlockPos in sendToAllPlayers ([590d40f](https://github.com/Urkaz/UrkazLib/commit/590d40fe593cb2ebf19c1c5b534dc36a86eb69f8))
+
+
+### Bug Fixes
+
+* fabric not correctly handling packages in the client ([03e48d5](https://github.com/Urkaz/UrkazLib/commit/03e48d53fcdd9248a543413157657fd1d154b403))
+* fabric not sending packet to all players ([346e41d](https://github.com/Urkaz/UrkazLib/commit/346e41d1cc7b04e775f7822f7dc453c135aeece5))
+* forgot to remove BlockPos in NetworkManager ([52fc929](https://github.com/Urkaz/UrkazLib/commit/52fc92903775ccc172b496b7dc73a2df76fa81c7))
+* packets were not registered correctly on fabric ([cde4edb](https://github.com/Urkaz/UrkazLib/commit/cde4edb6ef561464c6693ad754f1a21d946af028))
+
 ## [1.1.0](https://github.com/Urkaz/UrkazLib/compare/v1.0.1...v1.1.0) (2025-10-01)
 
 
