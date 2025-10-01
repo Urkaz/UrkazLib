@@ -66,8 +66,8 @@ public class NetworkManager {
         IPlatformNetworkManager.INSTANCE.sendToNearPlayers(level, pos, packet);
     }
 
-    public static void sendToAll(Level level, BlockPos pos, NetworkPacket packet) {
-        IPlatformNetworkManager.INSTANCE.sendToAllPlayers(level, pos, packet);
+    public static void sendToAll(Level level, NetworkPacket packet) {
+        IPlatformNetworkManager.INSTANCE.sendToAllPlayers(level, packet);
     }
 
     public static void sendToTracking(Entity e, NetworkPacket packet) {
