@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Urkaz/UrkazLib/compare/v1.2.0...v1.2.1) (2025-10-01)
+
+
+### Bug Fixes
+
+* crash with items not implementing IUrkazLibItemExtension ([31e9129](https://github.com/Urkaz/UrkazLib/commit/31e9129ac6fa862a9acc58aa57d21f6e0c010bd7))
+
 ## [1.2.0](https://github.com/Urkaz/UrkazLib/compare/v1.1.0...v1.2.0) (2025-10-01)
 
 
