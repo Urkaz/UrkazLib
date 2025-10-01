@@ -1,0 +1,38 @@
+name: Update Licenses
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'release-please--branches--*'
+
+permissions:
+  contents: write
+
+jobs:
+  update-licenses:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Set Permissions
+        run: chmod +x ./gradlew
+
+      - name: Update licenses
+        run: ./gradlew updateLicenses
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: "chore: update license headers"
+          branch: ${{ github.ref_name }}
