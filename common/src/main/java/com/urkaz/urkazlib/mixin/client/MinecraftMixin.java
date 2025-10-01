@@ -40,9 +40,11 @@ public class MinecraftMixin {
                 BlockHitResult blockHitResult = (BlockHitResult) this.hitResult;
                 BlockPos blockPos = blockHitResult.getBlockPos();
 
-                boolean canAttack = ((IUrkazLibItemExtension)(itemStack.getItem())).urkazlib$canAttackBlock(itemStack, blockPos, this.player);
-                if (!canAttack) {
-                    cir.setReturnValue(false);
+                if (itemStack.getItem() instanceof IUrkazLibItemExtension itemExtended) {
+                    boolean canAttack = itemExtended.urkazlib$canAttackBlock(itemStack, blockPos, this.player);
+                    if (!canAttack) {
+                        cir.setReturnValue(false);
+                    }
                 }
             }
         }
@@ -56,9 +58,11 @@ public class MinecraftMixin {
                 BlockHitResult blockHitResult = (BlockHitResult) this.hitResult;
                 BlockPos blockPos = blockHitResult.getBlockPos();
 
-                boolean canAttack = ((IUrkazLibItemExtension)(itemStack.getItem())).urkazlib$canAttackBlock(itemStack, blockPos, this.player);
-                if (!canAttack) {
-                    ci.cancel();
+                if (itemStack.getItem() instanceof IUrkazLibItemExtension itemExtended) {
+                    boolean canAttack = itemExtended.urkazlib$canAttackBlock(itemStack, blockPos, this.player);
+                    if (!canAttack) {
+                        ci.cancel();
+                    }
                 }
             }
         }
