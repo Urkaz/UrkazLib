@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/Urkaz/UrkazLib/compare/v1.0.1...v1.1.0) (2025-10-01)
+
+
+### Features
+
+* add getItemStackInHand ([3b934be](https://github.com/Urkaz/UrkazLib/commit/3b934be7745d05e806bdfd91956c02ff0b532971))
+* Delete ItemMixin as it was not useful ([50576f1](https://github.com/Urkaz/UrkazLib/commit/50576f10995c5056acb1abb0a90a77ee680863ff))
+
 ## [1.0.1](https://github.com/Urkaz/UrkazLib/compare/v1.0.0...v1.0.1) (2025-09-20)
 
 
