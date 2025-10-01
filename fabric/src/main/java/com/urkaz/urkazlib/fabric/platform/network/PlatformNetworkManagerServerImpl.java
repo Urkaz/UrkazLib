@@ -23,6 +23,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
+import java.util.Objects;
+
 import static com.urkaz.urkazlib.fabric.platform.network.PlatformNetworkManagerImpl.createContext;
 
 @Environment(EnvType.SERVER)
@@ -53,7 +55,7 @@ public class PlatformNetworkManagerServerImpl implements IPlatformNetworkManager
     @Override
     public void sendToAllPlayers(Level level, BlockPos pos, NetworkPacket packet) {
         var pkt = ServerPlayNetworking.createS2CPacket(packet);
-        for (var player : PlayerLookup.tracking((ServerLevel) level, pos)) {
+        for (var player : PlayerLookup.all(Objects.requireNonNull(level.getServer()))) {
             player.connection.send(pkt);
         }
     }
