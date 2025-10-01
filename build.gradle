@@ -17,7 +17,9 @@ subprojects {
     def isCiBuild = System.getenv("CI") == "true"
     def isLocalBuild = !isCiBuild
 
-    version = isLocalBuild ? getNextSnapshotVersion() : versionProps['mod_version']
+    version = isLocalBuild ?
+            getNextSnapshotVersion(versionProps['mod_version'] as String, project.minecraft_version) :
+            getThisVersion(versionProps['mod_version'] as String, project.minecraft_version)
     println "Building version: $version"
 
     group = maven_group
@@ -37,32 +39,12 @@ subprojects {
     }
 }
 
-import groovy.xml.XmlSlurper
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.net.http.HttpResponse
-
-def getLastRemoteVersion(String group, String artifact, String repoUrl) {
-    def groupPath = group.replace('.', '/')
-    def metadataUrl = "${repoUrl}/${groupPath}/${artifact}/maven-metadata.xml"
-    try {
-        def client = HttpClient.newHttpClient()
-        def request = HttpRequest.newBuilder()
-                .uri(URI.create(metadataUrl))
-                .GET()
-                .build()
-        def response = client.send(request, HttpResponse.BodyHandlers.ofInputStream())
-        def metadata = new XmlSlurper().parse(response.body())
-        return metadata.versioning.latest.text()
-    } catch (Exception e) {
-        println "Unable to retrieve remote version: ${e.message}"
-        return null
-    }
+static def getNextSnapshotVersion(String version, String minecraft_version) {
+    def parts = version.tokenize('.').collect { it.toInteger() }
+    parts[2] += 1 // Increment PATCH
+    return "${parts.join('.')}-mc${minecraft_version}-SNAPSHOT"
 }
 
-def getNextSnapshotVersion() {
-    def lastRemote = getLastRemoteVersion('com.urkaz.urkazlib', 'urkazlib-common', 'https://maven.franserver.mywire.org/releases') ?: '1.0.0'
-    def parts = lastRemote.tokenize('.').collect { it.toInteger() }
-    parts[2] += 1 // Increment PATCH
-    return "${parts.join('.')}-SNAPSHOT"
+static def getThisVersion(String version, String minecraft_version) {
+    return "${version}-mc${minecraft_version}-SNAPSHOT"
 }
