@@ -51,8 +51,8 @@ public class PlatformNetworkManagerImpl implements IPlatformNetworkManager {
     }
 
     @Override
-    public void sendToAllPlayers(Level level, BlockPos pos, NetworkPacket packet) {
-        delegate.sendToAllPlayers(level, pos, packet);
+    public void sendToAllPlayers(Level level, NetworkPacket packet) {
+        delegate.sendToAllPlayers(level, packet);
     }
 
     @Override

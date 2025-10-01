@@ -49,7 +49,7 @@ public class IPlatformNetworkManagerImpl implements IPlatformNetworkManager {
     }
 
     @Override
-    public void sendToAllPlayers(Level level, BlockPos pos, NetworkPacket packet) {
+    public void sendToAllPlayers(Level level, NetworkPacket packet) {
         if (!level.isClientSide) {
             PacketDistributor.sendToAllPlayers(packet);
         }

@@ -53,7 +53,7 @@ public class PlatformNetworkManagerServerImpl implements IPlatformNetworkManager
     }
 
     @Override
-    public void sendToAllPlayers(Level level, BlockPos pos, NetworkPacket packet) {
+    public void sendToAllPlayers(Level level, NetworkPacket packet) {
         var pkt = ServerPlayNetworking.createS2CPacket(packet);
         for (var player : PlayerLookup.all(Objects.requireNonNull(level.getServer()))) {
             player.connection.send(pkt);

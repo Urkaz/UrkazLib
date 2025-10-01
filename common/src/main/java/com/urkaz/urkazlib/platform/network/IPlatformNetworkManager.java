@@ -22,7 +22,7 @@ public interface IPlatformNetworkManager {
     void sendToServer(NetworkPacket packet);
     void sendToPlayer(Player player, NetworkPacket packet);
     void sendToNearPlayers(Level level, BlockPos pos, NetworkPacket packet);
-    void sendToAllPlayers(Level level, BlockPos pos, NetworkPacket packet);
+    void sendToAllPlayers(Level level, NetworkPacket packet);
     void sendToTracking(Entity e, NetworkPacket packet);
 
     <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec);
