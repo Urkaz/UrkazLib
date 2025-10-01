@@ -56,7 +56,7 @@ public class PlatformNetworkManagerClientImpl implements IPlatformNetworkManager
 
     @Override
     public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
-
+        PayloadTypeRegistry.playC2S().register(type, (StreamCodec<FriendlyByteBuf, P>) codec);
     }
 
     @Override

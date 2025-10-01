@@ -83,6 +83,6 @@ public class PlatformNetworkManagerServerImpl implements IPlatformNetworkManager
 
     @Override
     public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
-
+        PayloadTypeRegistry.playS2C().register(type, (StreamCodec<FriendlyByteBuf, P>) codec);
     }
 }
