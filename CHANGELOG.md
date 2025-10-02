@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Urkaz/UrkazLib/compare/v1.2.1...v1.3.0) (2025-10-02)
+
+
+### Features
+
+* upgrade minecraft version to 1.21.8 ([5112bce](https://github.com/Urkaz/UrkazLib/commit/5112bcea6c339c31ebebc48e22e91abca5b5de98))
+
 ## [1.2.1](https://github.com/Urkaz/UrkazLib/compare/v1.2.0...v1.2.1) (2025-10-01)
 
 
