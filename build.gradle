@@ -46,5 +46,5 @@ static def getNextSnapshotVersion(String version, String minecraft_version) {
 }
 
 static def getThisVersion(String version, String minecraft_version) {
-    return "${version}-mc${minecraft_version}-SNAPSHOT"
+    return "${version}-mc${minecraft_version}"
 }
