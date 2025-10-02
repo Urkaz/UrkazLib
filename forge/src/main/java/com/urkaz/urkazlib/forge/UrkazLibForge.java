@@ -7,6 +7,7 @@ package com.urkaz.urkazlib.forge;
 
 import com.urkaz.urkazlib.UrkazLib;
 import com.urkaz.urkazlib.forge.platform.EventBuses;
+import com.urkaz.urkazlib.forge.platform.network.IPlatformNetworkManagerImpl;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class UrkazLibForge {
     public UrkazLibForge(FMLJavaModLoadingContext context) {
         EventBuses.registerModEventBus(UrkazLib.MOD_ID, context.getModBusGroup());
+        IPlatformNetworkManagerImpl.init();
         UrkazLib.init();
     }
 }
