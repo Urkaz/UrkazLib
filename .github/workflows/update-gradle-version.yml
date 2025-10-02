@@ -1,4 +1,4 @@
-name: Update Gradle Version
+name: (Release) Update Gradle Version
 
 on:
   workflow_dispatch:
