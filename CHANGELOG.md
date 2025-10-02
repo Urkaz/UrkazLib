@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/Urkaz/UrkazLib/compare/v1.3.1...v1.4.0) (2025-10-02)
+
+
+### Features
+
+* simplify NetworkManager to always use RegistryFriendlyByteBuf ([cc94e90](https://github.com/Urkaz/UrkazLib/commit/cc94e90c53602e3638af9076afa6bfebf1d8ad8f))
+
+
+### Bug Fixes
+
+* crash fix due to a not initialized network channel in forge ([b960352](https://github.com/Urkaz/UrkazLib/commit/b960352ae58fcf21871a7d3d4bcb03963ad147f1))
+* setPacketHandled in forge ([37c8245](https://github.com/Urkaz/UrkazLib/commit/37c82457cd47707b1824fd244a0b9948e670b75d))
+
 ## [1.3.1](https://github.com/Urkaz/UrkazLib/compare/v1.3.0...v1.3.1) (2025-10-02)
 
 
