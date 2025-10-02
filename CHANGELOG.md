@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/Urkaz/UrkazLib/compare/v1.3.0...v1.3.1) (2025-10-02)
+
+
+### Bug Fixes
+
+* fix version name ([d42988f](https://github.com/Urkaz/UrkazLib/commit/d42988fab9b5649f75a57ee5fe2d73a51a6768fe))
+
 ## [1.3.0](https://github.com/Urkaz/UrkazLib/compare/v1.2.1...v1.3.0) (2025-10-02)
 
 
