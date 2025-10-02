@@ -86,6 +86,7 @@ public class IPlatformNetworkManagerImpl implements IPlatformNetworkManager {
     public <P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         NETWORK_CHANNEL_BUILDER.serverbound().add(type, codec, (packet, context) -> {
             packet.receiveMessage(packet, createContext(context.getSender(), context, false));
+            context.setPacketHandled(true);
         });
     }
 
@@ -93,6 +94,7 @@ public class IPlatformNetworkManagerImpl implements IPlatformNetworkManager {
     public <P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         NETWORK_CHANNEL_BUILDER.clientbound().add(type, codec, (packet, context) -> {
             packet.receiveMessage(packet, createContext(context.getSender(), context, true));
+            context.setPacketHandled(true);
         });
     }
 
