@@ -15,6 +15,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerLevel;
@@ -63,16 +64,16 @@ public class IPlatformNetworkManagerImpl implements IPlatformNetworkManager {
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         registerS2C(type, codec);
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         EventBusHooks.whenAvailable(UrkazLib.MOD_ID, bus -> {
             bus.<RegisterPayloadHandlersEvent>addListener(event -> {
                 PayloadRegistrar registrar = event.registrar("1");
-                registrar.playToServer(type,  (StreamCodec<FriendlyByteBuf, P>)codec, (packet, context) -> {
+                registrar.playToServer(type, codec, (packet, context) -> {
                     packet.receiveMessage(packet, createContext(context.player(), context, false));
                 });
             });
@@ -80,11 +81,11 @@ public class IPlatformNetworkManagerImpl implements IPlatformNetworkManager {
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         EventBusHooks.whenAvailable(UrkazLib.MOD_ID, bus -> {
             bus.<RegisterPayloadHandlersEvent>addListener(event -> {
                 PayloadRegistrar registrar = event.registrar("1");
-                registrar.playToClient(type,  (StreamCodec<FriendlyByteBuf, P>)codec, (packet, context) -> {
+                registrar.playToClient(type, codec, (packet, context) -> {
                     packet.receiveMessage(packet, createContext(context.player(), context, true));
                 });
             });

@@ -9,6 +9,7 @@ import com.urkaz.urkazlib.api.ServiceUtil;
 import com.urkaz.urkazlib.network.NetworkPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.entity.Entity;
@@ -25,9 +26,9 @@ public interface IPlatformNetworkManager {
     void sendToAllPlayers(Level level, NetworkPacket packet);
     void sendToTracking(Entity e, NetworkPacket packet);
 
-    <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec);
-    <B extends FriendlyByteBuf, P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec);
-    <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec);
+    <P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec);
+    <P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec);
+    <P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec);
 
     IPlatformNetworkManager INSTANCE = ServiceUtil.findService(IPlatformNetworkManager.class, null);
 }

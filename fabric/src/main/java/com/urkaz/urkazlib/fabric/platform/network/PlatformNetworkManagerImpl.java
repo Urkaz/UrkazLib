@@ -12,6 +12,7 @@ import com.urkaz.urkazlib.platform.network.IPlatformNetworkManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.util.thread.BlockableEventLoop;
@@ -61,17 +62,17 @@ public class PlatformNetworkManagerImpl implements IPlatformNetworkManager {
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         delegate.registerS2CType(type, codec);
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         delegate.registerC2S(type, codec);
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         delegate.registerS2C(type, codec);
     }
 

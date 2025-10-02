@@ -16,6 +16,7 @@ import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerLevel;
@@ -70,23 +71,23 @@ public class PlatformNetworkManagerClientImpl implements IPlatformNetworkManager
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
-        PayloadTypeRegistry.playS2C().register(type, (StreamCodec<FriendlyByteBuf, P>) codec);
+    public <P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
+        PayloadTypeRegistry.playS2C().register(type, codec);
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         UrkazLib.LOGGER.info("Registering C2S receiver with id {}", type.id());
-        PayloadTypeRegistry.playC2S().register(type, (StreamCodec<FriendlyByteBuf, P>) codec);
+        PayloadTypeRegistry.playC2S().register(type, codec);
         ServerPlayNetworking.registerGlobalReceiver(type, (packet, context) -> {
             packet.receiveMessage(packet, createContext(context.player(), context.player().getServer(), false));
         });
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         UrkazLib.LOGGER.info("Registering S2C receiver with id {}", type.id());
-        PayloadTypeRegistry.playS2C().register(type, (StreamCodec<FriendlyByteBuf, P>) codec);
+        PayloadTypeRegistry.playS2C().register(type, codec);
         ClientPlayNetworking.registerGlobalReceiver(type, (packet, context) -> {
             packet.receiveMessage(packet, createContext(context.player(), context.client(), true));
         });

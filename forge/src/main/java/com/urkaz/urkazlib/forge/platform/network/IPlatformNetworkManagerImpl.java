@@ -78,22 +78,20 @@ public class IPlatformNetworkManagerImpl implements IPlatformNetworkManager {
     }
 
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
+    public <P extends NetworkPacket> void registerS2CType(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
         registerS2C(type, codec);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
-        NETWORK_CHANNEL_BUILDER.serverbound().add(type, (StreamCodec<RegistryFriendlyByteBuf, P>) codec, (packet, context) -> {
+    public <P extends NetworkPacket> void registerC2S(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
+        NETWORK_CHANNEL_BUILDER.serverbound().add(type, codec, (packet, context) -> {
             packet.receiveMessage(packet, createContext(context.getSender(), context, false));
         });
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public <B extends FriendlyByteBuf, P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<B, P> codec) {
-        NETWORK_CHANNEL_BUILDER.clientbound().add(type, (StreamCodec<RegistryFriendlyByteBuf, P>) codec, (packet, context) -> {
+    public <P extends NetworkPacket> void registerS2C(CustomPacketPayload.Type<P> type, StreamCodec<RegistryFriendlyByteBuf, P> codec) {
+        NETWORK_CHANNEL_BUILDER.clientbound().add(type, codec, (packet, context) -> {
             packet.receiveMessage(packet, createContext(context.getSender(), context, true));
         });
     }
