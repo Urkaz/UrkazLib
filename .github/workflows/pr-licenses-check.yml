@@ -1,10 +1,8 @@
 name: Update Licenses
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - 'release-please--branches--*'
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
@@ -29,10 +27,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Update licenses
-        run: ./gradlew updateLicenses
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v6
-        with:
-          commit_message: "chore: update license headers"
-          branch: ${{ github.ref_name }}
+        run: ./gradlew checkLicenses

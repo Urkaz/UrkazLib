@@ -35,7 +35,7 @@ subprojects {
 
         include "**/*.java"
 
-        ignoreFailures = true
+        ignoreFailures = false
     }
 }
 
