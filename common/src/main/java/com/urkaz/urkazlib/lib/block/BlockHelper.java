@@ -23,6 +23,8 @@ public class BlockHelper {
         float blockStateDestroySpeed = blockState.getDestroySpeed(blockGetter, blockPos);
         if (blockStateDestroySpeed == -1.0F) {
             return 0.0F;
+        } else if(blockStateDestroySpeed == 0.0F) {
+            return 100.0F;
         } else {
             int playerSpeedModifier = player.hasCorrectToolForDrops(blockState) ? 30 : 100;
             float playerDestroySpeed = player.getDestroySpeed(blockState);
