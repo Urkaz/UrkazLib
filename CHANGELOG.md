@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/Urkaz/UrkazLib/compare/v1.4.0...v1.4.1) (2025-10-02)
+
+
+### Bug Fixes
+
+* fix mixin extras version ([365c813](https://github.com/Urkaz/UrkazLib/commit/365c813ee9cfee59351ae143d5fd22964aeefdef))
+
 ## [1.4.0](https://github.com/Urkaz/UrkazLib/compare/v1.3.1...v1.4.0) (2025-10-02)
 
 
