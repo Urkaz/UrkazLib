@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/Urkaz/UrkazLib/compare/v1.4.1...v1.4.2) (2026-03-11)
+
+
+### Bug Fixes
+
+* infinity/NaN calculating getDestroyProgressIgnoringTool ([a171222](https://github.com/Urkaz/UrkazLib/commit/a1712229568413bc7e4593ff2eb5738f5489990f))
+
 ## [1.4.1](https://github.com/Urkaz/UrkazLib/compare/v1.4.0...v1.4.1) (2025-10-02)
 
 
